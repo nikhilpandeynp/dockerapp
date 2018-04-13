@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./reactapp
+    ports:
+      - "3000:3000"
+  server:
+    build:
+      context: ./expressapp
+    ports:
+      - "4000:4000"
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
